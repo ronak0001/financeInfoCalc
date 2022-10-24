@@ -1,0 +1,24 @@
+<html>
+    <h1>Finance Info Calculator</h1>
+    <h2>Input
+    </h2>
+    <form action="/" method="POST">
+        Please enter a symbol:
+        <input name="symbol" type="text" />
+        <br>
+        <input type="submit" value="Go" />
+    </form>
+    <h2> Output </h2><br>
+    {% if request.method == "POST" and error == "" %}
+    Company Name: {{companyName}}<br>
+    Current date and time : {{now}}<br>
+    Two Days Data : {{twoDaysData}}<br>
+    Value Change : {{valueChange}}<br>
+    Percent Change : {{percentChange}}<br>
+
+    {% endif %}
+
+    {% if request.method == "POST" and error != ""   %}
+        <b style = "color:red" > Error : {{error}} </b>
+    {% endif %}
+</html>
